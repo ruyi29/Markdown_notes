@@ -26,6 +26,7 @@ learngit为github上仓库的名字
 ```
 $ git push -u origin master
 $ git push origin master
+$ git push -f origin 分支名  --> 覆盖提交
 ```
 实际上是把当前分支master推送到远程。
 

@@ -5,3 +5,6 @@
 3. git commit -m "提交注释"
 
 git push origin  分支名称，一般使用：git push origin master
+
+git ls-files 查看已提交仓库的文件
+git clone git@github.com:ruyi29/Markdown_notes.git
