@@ -1,4 +1,15 @@
 # git基本使用
+```
+# 分支合并发布流程：
+git add .			# 将所有新增、修改或删除的文件添加到暂存区
+git commit -m "版本发布" # 将暂存区的文件发版
+git status 			# 查看是否还有文件没有发布上去
+git checkout test	# 切换到要合并的分支
+git pull			# 在test 分支上拉取最新代码，避免冲突
+git merge dev   	# 在test 分支上合并 dev 分支上的代码
+git push			# 上传test分支代码
+```
+
 1. 基本配置
 ```
 git config --global user.name "Your Name"
