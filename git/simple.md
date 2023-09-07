@@ -40,3 +40,10 @@ git pull origin master
 - `git ls-files `查看已提交仓库的文件
 
 - `git clone git@github.com:ruyi29/Markdown_notes.git`
+
+5. Git pull 强制拉取并覆盖本地代码
+```
+git fetch --all
+git reset --hard origin/master
+git pull
+```
