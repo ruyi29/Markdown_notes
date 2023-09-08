@@ -42,6 +42,7 @@ git pull origin master
 - `git clone git@github.com:ruyi29/Markdown_notes.git`
 
 5. Git pull 强制拉取并覆盖本地代码
+git默认不上传空文件夹
 ```
 git fetch --all
 git reset --hard origin/master
