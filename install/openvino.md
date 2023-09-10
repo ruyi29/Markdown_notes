@@ -8,3 +8,6 @@
 cd /opt/intel/openvino_2022
 sudo -E ./install_dependencies/install_openvino_dependencies.sh
 ```
+
+## openvino2023安装
+直接跟着教程1走
