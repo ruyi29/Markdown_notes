@@ -1,0 +1,76 @@
+Matrix::Matrix(int rows, int cols):rows(rows),cols(cols){
+	if (rows > 0 && cols > 0) {  // 行列数合理时
+		matrix = new int* [rows]();
+		for (int i = 0; i < rows; i++) {
+			matrix[i] = new int[cols]();
+		}
+	}
+	//else {
+	//	rows = 0;
+	//	cols = 0;
+	//}
+}
+
+Matrix::~Matrix() {
+	if (rows > 0 && cols > 0) {
+		for (int i = 0; i < rows; i++) {
+			delete[] matrix[i];
+		}
+		delete[] matrix;
+	}
+	//else {
+	//	rows = 0;
+	//	cols = 0;
+	//}
+}
+
+std::istream& operator>>(std::istream& in, Matrix& matrix){
+	for (int i = 0; i < matrix.rows; i++) {
+		for (int j = 0; j < matrix.cols; j++) {
+			in >> matrix.matrix[i][j];
+		}
+	}
+	return in;
+}
+
+std::ostream& operator<<(std::ostream& os, const Matrix& matrix) {
+	for (int i = 0; i < matrix.rows; i++) {
+		for (int j = 0; j < matrix.cols; j++) {
+			os << matrix.matrix[i][j] << " ";
+		}
+		os << std::endl;
+	}
+	return os;
+}
+
+Matrix Matrix::operator*(const Matrix& other) {
+	std::cout << "\n*:" << std::endl;
+	Matrix NullMatrix(0, 0);
+	if (cols != other.rows) {    // 两矩阵无法相乘时
+		std::cout << "Matrix mismatch" << std::endl;
+		return NullMatrix;
+	}
+	Matrix m(rows, other.cols);
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < other.cols; j++) {
+			m.matrix[i][j] = 0;
+			for (int t = 0; t < cols; t++) {
+				m.matrix[i][j] += matrix[i][t] * other.matrix[t][j];
+			}
+		}
+	}
+	return m;
+}
+
+Matrix Matrix::operator+(const Matrix& other) {
+	Matrix m(rows, other.cols);
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < other.cols; j++) {
+			m.matrix[i][j] = 0;
+			for (int t = 0; t < cols; t++) {
+				m.matrix[i][j] += matrix[i][t] * other.matrix[t][j];
+			}
+		}
+	}
+	return m;
+}
